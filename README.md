@@ -1,24 +1,47 @@
-# README
+![Twilio Logo](./twilio_logo_red.png)
+# Twilio Account Security Quickstart - Two-Factor Authentication and Phone Verification
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple Ruby on Rails implementation of a website that uses Twilio Account
+Security services to protect all assets within a folder. Additionally, it
+shows a Phone Verification implementation.
 
-Things you may want to cover:
+It uses four channels for delivery, SMS, Voice, Soft Tokens, and Push
+Notifications. You should have the [Authy App](https://authy.com/download/)
+installed to try Soft Token and Push Notification support.
 
-* Ruby version
+This app uses [SQLite](https://www.sqlite.org/) as a data store. You will
+have to install SQLite as well and make sure it is running.
 
-* System dependencies
+#### Two-Factor Authentication Demo
+- URL path "/protected" is protected with both user session and Twilio Two-Factor Authentication
+- One Time Passwords (SMS and Voice)
+- SoftTokens
+- Push Notifications (via polling)
 
-* Configuration
+#### Phone Verification
+- Phone Verification
+- SMS or Voice Call
 
-* Database creation
+### Setup
+1. Clone this repo
+   ```sh
+   git clone https://github.com/TwilioDevEd/account-security-quickstart-rails.git
+   cd account-security-quickstart-rails
+   ```
 
-* Database initialization
+1. Run `bundle install`
 
-* How to run the test suite
+1. Register for a [Twilio Account](https://www.twilio.com/).
 
-* Services (job queues, cache servers, search engines, etc.)
+1. Setup an Account Security app via the [Twilio Console](https://twilio.com/console).
 
-* Deployment instructions
+1. Create your `env` file from the existing example: `cp .env.example .env`
 
-* ...
+1. Grab an Application API key from the Dashboard and paste it in `.env`
+
+1. Check and make sure SQLite is up and running
+
+1. Run `bin/rails server` from the cloned repo to run the app
+
+### License
+- MIT
