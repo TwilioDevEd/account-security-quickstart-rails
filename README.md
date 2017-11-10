@@ -41,7 +41,9 @@ have to install SQLite as well and make sure it is running.
 
 1. Check and make sure SQLite is up and running
 
-1. Run `bin/rails server` from the cloned repo to run the app
+1. Run `bin/rails db:migrate` to create the tables
+
+1. Run `bin/rails server` to start the server
 
 ### License
 - MIT
