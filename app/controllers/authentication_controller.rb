@@ -1,17 +1,17 @@
 class AuthenticationController < ApplicationController
   def login
-    user = User.find_by(username: params[:username])
+    user = User.find_by(username: params['username'])
 
     if ! user
-      err = 'Username Not Found';
+      err = 'Username Not Found'
     end
 
     if params['password'] && params['password'] != user.password
-      err = 'Wrong Password';
+      err = 'Wrong Password'
     end
 
     if err
-      render status: :internal_server_error
+      render status: :internal_server_error and return
     end
 
     session[:user] = user
@@ -21,17 +21,17 @@ class AuthenticationController < ApplicationController
 
   def logout
     reset_session
-    render status: ok
+    render status: :ok
   end
 
   def logedIn
-    url = '/login'
+    url = '/protected'
 
-    if req.session.loggedIn && req.session.authy
-      url = '/protected'
+    if ! session[:logged_in]
+      url = '/login'
     end
 
-    if req.session.loggedIn && !req.session.authy
+    if ! session[:authy]
       url = '/2fa'
     end
 
