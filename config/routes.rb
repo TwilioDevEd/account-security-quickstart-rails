@@ -11,15 +11,14 @@ Rails.application.routes.draw do
     post '/loggedIn', to: 'authentication#loggedIn'
 
     # Account Security Authentication API
-    post '/api/accountsecurity/token/sms', to: 'twofa#token_sms'
-    post '/api/accountsecurity/token/voice', to: 'twofa#token_voice'
+    post '/api/accountsecurity/sms', to: 'twofa#sms'
+    post '/api/accountsecurity/voice', to: 'twofa#voice'
     post '/api/accountsecurity/verify', to: 'twofa#verify'
     post '/api/accountsecurity/onetouchstatus', to: 'twofa#onetouchstatus'
     post '/api/accountsecurity/onetouch', to: 'twofa#onetouch'
 
     # Account Security Phone Verification API
     post '/api/verification/start', to: 'verify#start'
-    post '/api/verification/token', to: 'verify#token'
     post '/api/verification/verify', to: 'verify#verify'
   end
 end
