@@ -27,8 +27,9 @@ class ApplicationController < ActionController::Base
     )
 
     if ! authy.ok?
-      logger.warn "Authy didn't handle well the registration"
-      render json: { error: "Authy didn't handle well the registration" }, status: :service_unavailable
+      error_msg = "Authy didn't handle well the registration"
+      logger.warn error_msg
+      render json: { error: error_msg }, status: :service_unavailable
     end
 
     new_user = User.create(
@@ -44,5 +45,7 @@ class ApplicationController < ActionController::Base
     end
 
     session[:user] = user
+    session[:logged_in] = true
+    render status: :ok
   end
 end
