@@ -1,27 +1,27 @@
-class AuthenticationController < ApplicationController
-  def login
-    user = User.find_by(username: params['username'])
+class Api::AuthenticationController < ApplicationController
+  def login()
+    user = User.find_by(username: params[:username])
 
     if ! user
       err = 'Username Not Found'
     end
 
-    if params['password'] && params['password'] != user.password
+    if params[:password] && params[:password] != user.password
       err = 'Wrong Password'
     end
 
     if err
-      render status: :internal_server_error and return
+      render json: {}, status: :internal_server_error and return
     end
 
-    session[:user] = user
+    session[:username] = user.username
     session[:logged_in] = true
-    render status: :ok
+    render json: {}, status: :ok
   end
 
   def logout
     reset_session
-    render status: :ok
+    render json: {}, status: :ok
   end
 
   def logedIn

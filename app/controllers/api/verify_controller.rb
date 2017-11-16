@@ -1,10 +1,10 @@
 require 'authy'
 
-class VerifyController < ApplicationController
+class Api::VerifyController < ApplicationController
   def start()
-    phone_number = params['phone_number']
-    country_code = params['country_code']
-    via = params['via']
+    phone_number = params[:phone_number]
+    country_code = params[:country_code]
+    via = params[:via]
 
     if !phone_number || !country_code || !via
       render json: { err: 'Missing fields' }, status: :internal_server_error and return
@@ -24,7 +24,7 @@ class VerifyController < ApplicationController
   end
 
   def verify()
-    response = Authy::API.verify(:id => user.authy_id, :token => params['token'])
+    response = Authy::API.verify(id: user.authy_id, token: params[:token])
 
     if ! response.ok?
       render json: { err: 'Verify Token Error' }, status: :internal_server_error and return

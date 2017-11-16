@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     # Locally and Authyly user creation
-    post '/user/register', to: 'application#register'
+    post '/user/register', to: 'users#register'
 
     # Authentication API
     post '/login', to: 'authentication#login'
