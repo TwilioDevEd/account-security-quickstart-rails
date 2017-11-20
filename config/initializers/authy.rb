@@ -1,4 +1,4 @@
 require 'authy'
 
-Authy.api_key = ENV['ACCOUNT_SECURITY_API_KEY']
+Authy.api_key = Rails.application.secrets.authy_key
 Authy.api_uri = 'https://api.authy.com/'

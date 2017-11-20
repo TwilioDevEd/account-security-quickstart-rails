@@ -6,9 +6,7 @@ class Api::UsersController < ApplicationController
       redirect_to '/'
     end
 
-    user = User.find_by(username: params[:username])
-
-    if user
+    if User.find_by(username: params[:username])
       render json: { err: 'Username Already Registered' }, status: :conflict and return
     end
 
@@ -19,7 +17,7 @@ class Api::UsersController < ApplicationController
     )
 
     if ! authy.ok?
-      error_msg = "Authy didn't handle well the registration"
+      error_msg = "One attribute is not valid, would you mind to take a look at them?"
       logger.warn error_msg
       render json: { err: error_msg }, status: :internal_server_error and return
     end
@@ -27,8 +25,7 @@ class Api::UsersController < ApplicationController
     new_user = User.create(
       username: params[:username],
       email: params[:email],
-      # authy_id: authy.id,
-      authy_id: 2,
+      authy_id: authy.id,
       password: params[:password]
     )
 
@@ -37,7 +34,7 @@ class Api::UsersController < ApplicationController
       render json: { error: e.to_s }, status: :internal_server_error and return
     end
 
-    session[:username] = user.username
+    session[:username] = new_user.username
     session[:logged_in] = true
     render json: {}, status: :ok
   end
