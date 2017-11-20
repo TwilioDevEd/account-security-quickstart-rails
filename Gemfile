@@ -42,6 +42,7 @@ group :development, :test do
   # Test runner
   gem 'rspec-rails', '~> 3.5'
   gem 'authy', '~> 2.7.1'
+  gem 'figaro'
 end
 
 group :development do
