@@ -36,6 +36,7 @@ have to install SQLite as well and make sure it is running.
 1. Setup an Account Security app via the [Twilio Console](https://twilio.com/console).
 
 1. Create your `application.yml` file from the existing example in `config/application.example.yml`
+
    ```sh
    cp config/application.example.yml config/application.yml
    ```
