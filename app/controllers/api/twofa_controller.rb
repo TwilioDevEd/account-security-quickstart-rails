@@ -48,9 +48,30 @@ class Api::TwofaController < ApplicationController
     render json: response, status: :ok
   end
 
-  def onetouchstatus()
-  end
-
   def onetouch()
+    user = User.find_by(username: session[:username])
+
+    if ! user
+      render json: { err: 'Username Not Found' }, status: :internal_server_error and return
+    end
+
+    one_touch = Authy::OneTouch.send_approval_request(
+      id: user.authy_id,
+      message: 'Login requested for Account Security account.',
+      details: {
+        AuthyID: user.authy_id,
+        Username: user.username,
+        Location: 'San Francisco, CA',
+        Reason: 'Demo by Account Security'
+      },
+      hidden_details: { test: "This is a" }
+    )
+
+    if ! one_touch.ok?
+      render json: { err: 'Create Push Error' }, status: :internal_server_error and return
+    end
+
+    session[:uuid] = one_touch.approval_request.uuid;
+    render json: one_touch, status: :ok
   end
 end
