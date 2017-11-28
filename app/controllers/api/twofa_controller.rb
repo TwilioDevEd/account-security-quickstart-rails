@@ -88,7 +88,8 @@ class Api::TwofaController < ApplicationController
       render json: { err: 'Create Push Error' }, status: :internal_server_error and return
     end
 
-    session[:uuid] = one_touch.approval_request.uuid
+    session[:uuid] = one_touch.approval_request['uuid']
+
     render json: one_touch, status: :ok
   end
 end

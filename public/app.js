@@ -112,9 +112,9 @@ app.controller('AuthyController', function ($scope, $http, $window, $interval) {
             .success(function (data, status, headers, config) {
                 console.log("OneTouch success", data);
                 /**
-                 * Poll for the status change.  Every 5 seconds for 12 times.  1 minute.
+                 * Poll for the status change.  Every 8 seconds for 9 times.
                  */
-                pollingID = $interval(oneTouchStatus, 5000, 12);
+                pollingID = $interval(oneTouchStatus, 8000, 9);
             })
             .error(function (data, status, headers, config) {
                 console.error("Onetouch error: ", data);
@@ -149,7 +149,7 @@ app.controller('PhoneVerificationController', function ($scope, $http, $window, 
     $scope.setup = {
         via: "sms"
     };
-    
+
     $scope.view = {
         start: true
     };
