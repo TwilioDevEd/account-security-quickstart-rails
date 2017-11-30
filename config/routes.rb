@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
     # Authentication API
     post '/login', to: 'authentication#login'
-    post '/logout', to: 'authentication#logout'
+    match '/logout', to: 'authentication#logout', via: [:get, :post]
     post '/loggedIn', to: 'authentication#loggedIn'
 
     # Account Security Authentication API

@@ -6,22 +6,35 @@ class Api::AuthenticationController < ApplicationController
       err = 'Username Not Found'
     end
 
-    if params[:password] && params[:password] != user.password
+    if params[:password] && user && params[:password] != user.password
       err = 'Wrong Password'
     end
 
     if err
-      render json: {}, status: :internal_server_error and return
+      render json: { err: err }, status: :unauthorized and return
     end
 
+    reset_session
     session[:username] = user.username
     session[:logged_in] = true
-    render json: {}, status: :ok
+    session[:authy] = false
+    session[:ph_verified] = false
+
+    data = {
+      loggedIn: true,
+      user: user.id,
+      username: user.username,
+      msg: 'Authenticated as: ' + user.username,
+      authy: false,
+      ph_verified: false
+    }
+
+    render json: { session: data }, status: :ok
   end
 
   def logout
     reset_session
-    render json: {}, status: :ok
+    head :ok
   end
 
   def logedIn
