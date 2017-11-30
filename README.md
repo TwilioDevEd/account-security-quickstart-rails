@@ -1,9 +1,7 @@
 ![Twilio Logo](./twilio_logo_red.png)
-# Twilio Account Security Quickstart - Two-Factor Authentication and Phone Verification
+# Twilio Account Security Quickstart - Twilio Authy and Twilio Verify
 
-A simple Ruby on Rails implementation of a website that uses Twilio Account
-Security services to protect all assets within a folder. Additionally, it
-shows a Phone Verification implementation.
+A simple Ruby on Rails implementation of a website that uses Twilio Authy Two-factor Authentication to protect all assets within a folder. Additionally, it shows a Twilio Verify Phone Verification implementation.
 
 It uses four channels for delivery, SMS, Voice, Soft Tokens, and Push
 Notifications. You should have the [Authy App](https://authy.com/download/)
@@ -13,7 +11,7 @@ This app uses [SQLite](https://www.sqlite.org/) as a data store. You will
 have to install SQLite as well and make sure it is running.
 
 #### Two-Factor Authentication Demo
-- URL path "/protected" is protected with both user session and Twilio Two-Factor Authentication
+- URL path "/protected" is protected with both user session and Twilio Authy Two-Factor Authentication
 - One Time Passwords (SMS and Voice)
 - SoftTokens
 - Push Notifications (via polling)
