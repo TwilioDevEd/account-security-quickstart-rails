@@ -55,14 +55,18 @@ class Api::TwofaController < ApplicationController
       render json: { err: 'Username Not Found' }, status: :internal_server_error and return
     end
 
-    status = Authy::OneTouch.approval_request_status(session)
+    status = Authy::OneTouch.approval_request_status({uuid: session[:uuid]})
 
     if ! status.ok?
       render json: { err: 'One Touch Status Error' }, status: :internal_server_error and return
     end
 
-    session[:authy] = true
-    render json: status, status: :ok
+    if status['approval_request']['approval_request'] == 'approved'
+      session.delete(:uuid) || session.delete('uuid')
+      session[:authy] = true
+    end
+
+    render json: {body: status}, status: :ok
   end
 
   def onetouch()
