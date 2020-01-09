@@ -47,5 +47,8 @@ have to install SQLite as well and make sure it is running.
 
 1. Run `bin/rails server` to start the server
 
-### License
-- MIT
+## Meta
+
+* No warranty expressed or implied. Software is as is. Diggity.
+* [MIT License](http://www.opensource.org/licenses/mit-license.html)
+* Lovingly crafted by Twilio Developer Education.
