@@ -10,6 +10,9 @@ installed to try Soft Token and Push Notification support.
 This app uses [SQLite](https://www.sqlite.org/) as a data store. You will
 have to install SQLite as well and make sure it is running.
 
+Learn more about Account Security and when to use the Authy API vs the Verify API in the [Account Security documentation])(https://www.twilio.com/docs/verify/authy-vs-verify).
+
+
 #### Two-Factor Authentication Demo
 - URL path "/protected" is protected with both user session and Twilio Authy Two-Factor Authentication
 - One Time Passwords (SMS and Voice)
