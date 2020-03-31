@@ -2,6 +2,8 @@
 # Twilio Account Security Quickstart - Twilio Authy and Twilio Verify
 > We are currently in the process of updating this sample template. If you are encountering any issues with the sample, please open an issue at [github.com/twilio-labs/code-exchange/issues](https://github.com/twilio-labs/code-exchange/issues) and we'll try to help you.
 
+![](https://github.com/TwilioDevEd/account-security-quickstart-rails/workflows/Ruby/badge.svg)
+
 A simple Ruby on Rails implementation of a website that uses Twilio Authy Two-factor Authentication to protect all assets within a folder. Additionally, it shows a Twilio Verify Phone Verification implementation.
 
 It uses four channels for delivery, SMS, Voice, Soft Tokens, and Push
@@ -31,7 +33,7 @@ Learn more about Account Security and when to use the Authy API vs the Verify AP
    cd account-security-quickstart-rails
    ```
 
-1. Run `bundle install`
+1. Run `bin/bundle install`
 
 1. Register for a [Twilio Account](https://www.twilio.com/).
 
