@@ -37,7 +37,7 @@ Implementations in other languages:
 ### Requirements
 
 - [Ruby](https://www.ruby-lang.org/) **2.6.x** version
-- [Sqlite3] (https://www.sqlite.org/)
+- [Sqlite3](https://www.sqlite.org/)
 
 ### Twilio Account Settings
 
@@ -90,7 +90,7 @@ That's it!
 You can run the tests locally by typing:
 
 ```bash
-make tests
+bundle exec rspec
 ```
 
 ### Cloud deployment

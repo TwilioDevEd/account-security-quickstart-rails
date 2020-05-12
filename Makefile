@@ -6,6 +6,3 @@ database:
 
 serve:
 	bundle exec rails server
-
-tests:
-	bundle exec rspec
