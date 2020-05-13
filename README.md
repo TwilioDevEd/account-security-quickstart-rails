@@ -1,8 +1,9 @@
 ![Twilio Logo](./twilio_logo_red.png)
 # Twilio Account Security Quickstart - Twilio Authy and Twilio Verify
-> We are currently in the process of updating this sample template. If you are encountering any issues with the sample, please open an issue at [github.com/twilio-labs/code-exchange/issues](https://github.com/twilio-labs/code-exchange/issues) and we'll try to help you.
 
 ![](https://github.com/TwilioDevEd/account-security-quickstart-rails/workflows/Ruby/badge.svg)
+
+> We are currently in the process of updating this sample template. If you are encountering any issues with the sample, please open an issue at [github.com/twilio-labs/code-exchange/issues](https://github.com/twilio-labs/code-exchange/issues) and we'll try to help you.
 
 ## About
 
