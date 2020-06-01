@@ -1,8 +1,11 @@
 require 'rails_helper'
 
 class APIRespose
+  attr_reader :approval_request
+
   def initialize(ok_value)
     @ok_value = ok_value
+    @approval_request = { :uuid => '123' }
   end
 
   def ok?

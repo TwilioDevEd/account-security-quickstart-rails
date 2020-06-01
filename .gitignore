@@ -28,3 +28,5 @@
 /config/application.yml
 
 /vendor/bundle/
+
+.tool-versions
