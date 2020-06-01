@@ -6,17 +6,13 @@ class Api::VerifyController < ApplicationController
 
   def start
     phone_number = params[:phone_number]
-    country_code = params[:country_code]
     via = params[:via]
 
-    if !phone_number || !country_code || !via
+    if !phone_number || !via
       render json: { err: 'Missing fields' }, status: :internal_server_error and return
     end
 
-    # REMOVE tmp_phone!!!
-    tmp_phone = country_code.to_s << phone_number.to_s
-
-    verification = start_verification(tmp_phone, via)
+    verification = start_verification(phone_number, via)
 
     unless verification.sid
       render json: { err: 'Error delivering code verification' }, status: :internal_server_error and return
@@ -28,17 +24,13 @@ class Api::VerifyController < ApplicationController
 
   def verify
     phone_number = params[:phone_number]
-    country_code = params[:country_code]
     token = params[:token]
 
-    if !phone_number || !country_code || !token
+    if !phone_number || !token
       render json: { err: 'Missing fields' }, status: :internal_server_error and return
     end
 
-    # REMOVE tmp_phone!!!
-    tmp_phone = country_code.to_s << phone_number.to_s
-
-    response = check_verification(tmp_phone, token)
+    response = check_verification(phone_number, token)
 
     unless response.status
       puts"Error creating phone reg request, #{err}"

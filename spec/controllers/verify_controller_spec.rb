@@ -58,7 +58,7 @@ RSpec.describe Api::VerifyController, type: :controller do
       it 'returns status 200 if everything is correct' do
         allow(Twilio::REST::Client).to receive(:new).and_return(MockTwilioClient.new)
 
-        post :start, params: { phone_number: '123456789', country_code: '+593', via: 'sms' }
+        post :start, params: { phone_number: '+593123456789', via: 'sms' }
 
         expect(response.status).to eq(200)
         expect(response.body).to eq("{\"sid\":\"sid\"}")
@@ -67,7 +67,7 @@ RSpec.describe Api::VerifyController, type: :controller do
       it 'returns status 500 if something is wrong' do
         allow(Twilio::REST::Client).to receive(:new).and_return(MockTwilioClient.new(false))
 
-        post :start, params: { phone_number: '123456789', country_code: '+593', via: 'sms' }
+        post :start, params: { phone_number: '+593123456789', via: 'sms' }
 
         expect(response.status).to eq(500)
         expect(response.body).to eql("{\"err\":\"Error delivering code verification\"}")
@@ -76,7 +76,7 @@ RSpec.describe Api::VerifyController, type: :controller do
 
     context 'when a field is missing' do
       it 'returns status 500 and error message' do
-        post :start, params: { phone_number: '123456789', via: 'SMS' }
+        post :start, params: { via: 'SMS' }
 
         expect(response.status).to eq(500)
         expect(response.body).to eql("{\"err\":\"Missing fields\"}")
@@ -88,7 +88,7 @@ RSpec.describe Api::VerifyController, type: :controller do
     context 'when all fields are sent' do
       it 'returns status 200 if status is approved' do
         allow(Twilio::REST::Client).to receive(:new).and_return(MockTwilioClient.new)
-        post :verify, params: { phone_number: '123456789', country_code: '+593', token: 'my_token' }
+        post :verify, params: { phone_number: '+593123456789', token: 'my_token' }
 
         expect(session[:authy]).to eq(true)
         expect(response.body).to eq("{\"status\":\"approved\"}")
@@ -97,7 +97,7 @@ RSpec.describe Api::VerifyController, type: :controller do
 
       it 'returns status 401 if status is not approved' do
         allow(Twilio::REST::Client).to receive(:new).and_return(MockTwilioClient.new(false))
-        post :verify, params: { phone_number: '123456789', country_code: '+593', token: 'my_token' }
+        post :verify, params: { phone_number: '+593123456789', token: 'my_token' }
 
         expect(session[:authy]).to eq(nil)
         expect(response.status).to eq(401)
@@ -107,7 +107,7 @@ RSpec.describe Api::VerifyController, type: :controller do
 
     context 'when a field is missing' do
       it 'returns status 500 and error message' do
-        post :verify, params: { phone_number: '123456789', token: 'my_token' }
+        post :verify, params: { phone_number: '123456789' }
 
         expect(response.status).to eq(500)
         expect(response.body).to eql("{\"err\":\"Missing fields\"}")
