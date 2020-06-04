@@ -65,7 +65,7 @@ Before we begin, we need to collect all the config values we need to run the app
 1. Set your environment variables.
 
    ```bash
-    cp config/application.example.yml config/application.yml
+    cp .env.example .env
    ```
 
    See [Twilio Account Settings](#twilio-account-settings) to locate the necessary environment variables.
