@@ -12,8 +12,10 @@ COPY . .
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - \
     && apt install -y nodejs
 
-RUN rails db:migrate
+RUN make install
+
+RUN make database
 
 EXPOSE 3000
 
-CMD ["rails", "server", "--binding", "0.0.0.0"]
+CMD ["make", "serve"]
