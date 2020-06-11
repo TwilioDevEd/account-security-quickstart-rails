@@ -11,8 +11,8 @@ RUN make install
 COPY . .
 
 # Install a Javascript environment in the container to avoid ExecJS::RuntimeUnavailable
-# RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - \
-#     && apt install -y nodejs
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - \
+    && apt install -y nodejs
 
 RUN make database
 
