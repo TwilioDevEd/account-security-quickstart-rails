@@ -56,13 +56,11 @@ class Api::VerifyController < ApplicationController
     verification = @client.verify.services(ENV['VERIFY_SERVICE_SID'])
                           .verifications
                           .create(:to => to, :channel => channel)
-    verification
   end
 
   def check_verification(phone, code)
     verification_check = @client.verify.services(ENV['VERIFY_SERVICE_SID'])
                                 .verification_checks
                                 .create(:to => phone, :code => code)
-    verification_check
   end
 end
