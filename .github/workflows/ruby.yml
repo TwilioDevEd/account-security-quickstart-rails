@@ -52,6 +52,7 @@ jobs:
       - name: Run tests
         run: |
           cp .env.example .env
+          bundle exec rails db:migrate RAILS_ENV=test
           bundle exec rspec
         env:
           RAILS_ENV: test
