@@ -44,7 +44,7 @@ RSpec.describe Api::TwofaController, type: :controller do
       end
     end
 
-    context 'when a user does not exists ' do
+    context 'when a user does not exist' do
       it'returns 500' do
         post :sms, session: { username: 'not_exists' }
 
@@ -76,7 +76,7 @@ RSpec.describe Api::TwofaController, type: :controller do
       end
     end
 
-    context 'when a user does not exists ' do
+    context 'when a user does not exist' do
       it'returns 500' do
         post :voice, session: { username: 'not_exists' }
 
@@ -108,7 +108,7 @@ RSpec.describe Api::TwofaController, type: :controller do
       end
     end
 
-    context 'when a user does not exists ' do
+    context 'when a user does not exist' do
       it'returns 500' do
         post :verify, session: { username: 'not_exists' }
 
@@ -140,7 +140,7 @@ RSpec.describe Api::TwofaController, type: :controller do
       end
     end
 
-    context 'when a user does not exists ' do
+    context 'when a user does not exist' do
       it'returns 500' do
         post :onetouch, session: { username: 'not_exists' }
 
