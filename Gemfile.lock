@@ -199,7 +199,7 @@ GEM
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
     semantic_range (3.0.0)
-    shoulda-matchers (4.3.0)
+    shoulda-matchers (4.5.1)
       activesupport (>= 4.2.0)
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
@@ -263,7 +263,7 @@ DEPENDENCIES
   rspec-rails (~> 5.0)
   sass-rails (~> 6.0)
   selenium-webdriver
-  shoulda-matchers (~> 4.3)
+  shoulda-matchers (~> 4.5)
   spring
   spring-watcher-listen (~> 2.0.1)
   sqlite3
