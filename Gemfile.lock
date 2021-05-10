@@ -94,7 +94,7 @@ GEM
       railties (>= 3.2)
     erubi (1.10.0)
     execjs (2.7.0)
-    factory_bot (6.1.0)
+    factory_bot (6.2.0)
       activesupport (>= 5.0.0)
     faker (2.17.0)
       i18n (>= 1.6, < 2)
@@ -254,7 +254,7 @@ DEPENDENCIES
   coffee-rails (~> 5.0)
   database_cleaner
   dotenv-rails
-  factory_bot (~> 6.1.0)
+  factory_bot (~> 6.2.0)
   faker
   jbuilder (~> 2.11)
   listen (~> 3.5.1)
