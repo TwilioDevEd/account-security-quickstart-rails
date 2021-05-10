@@ -52,7 +52,7 @@ end
 
 group :test do
   gem 'database_cleaner'
-  gem 'factory_bot', '~> 6.1.0'
+  gem 'factory_bot', '~> 6.2.0'
   gem 'faker'
   gem 'shoulda-matchers', '~> 4.5'
 end
