@@ -27,7 +27,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.11'
 
 #Twilio
-gem 'twilio-ruby', '~>5.54.1'
+gem 'twilio-ruby', '~>5.55.0'
 
 group :development, :test do
   gem 'authy', '~> 3.0.0'
