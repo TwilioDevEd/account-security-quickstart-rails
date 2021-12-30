@@ -269,7 +269,7 @@ PLATFORMS
 DEPENDENCIES
   authy (~> 3.0.0)
   byebug
-  capybara (~> 3)
+  capybara (~> 3, >= 3.35.3)
   coffee-rails (~> 5.0)
   database_cleaner
   dotenv-rails
